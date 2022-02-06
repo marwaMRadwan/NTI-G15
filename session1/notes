@@ -1,0 +1,16 @@
+ToDo List
+Tasks => [
+    {id, title, content, status, dueDate, type}
+]
+
+types => [typ1, typ2, ....]
+
+all Tasks , every task => edit, show, delete
+add task => form ==> submit -==> allTasks
+
+create
+update
+read all
+read single task
+delete
+deleta all tasks
