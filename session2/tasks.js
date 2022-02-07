@@ -17,6 +17,25 @@ const createMyOwnElement = (element)=>{
         console.log(e)
     }
 }
+//read data from localstorage
+const readFromStorage = ( storageItem ) => {
+    //check data is json or not // if the returned data array
+    let data
+    try{
+        const data = JSON.parse( localStorage.getItem(storageItem) )
+        if(!Array.isArray(data)) throw new Error("Data not array")
+    }
+    catch(e){
+        data = []
+    }
+    return data
+}
+
+//write data in localstorage
+const writeDataToStorage = (  ) => {
+    
+}
+
 //add task page
 taskTypes.forEach(taskType=>{
     let ele= {
@@ -34,11 +53,9 @@ addTask.addEventListener("submit", function(e){
     let task = { id: Date.now() }
     taskHeads.forEach( head => task[head]= addTask.elements[head].value)
     console.log(task)
+    const tasks = readFromStorage("tasks")
+    tasks.push(task)
+    console.log(tasks)
 })
 
 
-
-localStorage.setItem("data", JSON.stringify([{name:"marwa"}]))
-let d = JSON.parse(localStorage.getItem("data"))
-console.log(typeof d);
-// localStorage.removeItem("data")
