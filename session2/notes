@@ -1,0 +1,21 @@
+bank 
+- customers => accNum, name, balance, transactions
+==> add customers
+==> show all customers
+==> show single customer
+==> add transaction to customer => select (withdraw, addBalance), input(balance)
+user => {
+    accNum: random,
+    name:",
+    balance:100,
+    transactions:[
+        {transactionType:"withdraw", balance:50},
+        .....
+    ]    
+}
+
+clousers
+call back
+promises
+async await
+then catch
