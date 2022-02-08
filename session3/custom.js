@@ -80,21 +80,40 @@ const myPro = (val) =>{
         setTimeout(()=>{
             typeof val=="number"? resolve(val*2) : reject("not a number")    
         }
-            ,5000
+            ,1000
         )
     })
 }
-myPro("a")
-.then(res=> console.log(res))
-.catch(err=> console.log(err))
-console.log(1)
+// then catch
+// myPro("a")
+// .then(
+//     (res) => console.log(res),
+//     (err) => console.log(err)
+//     )
+// .catch(err=> console.log(err))
+// console.log(1)
 // console.log(myPro(5))
 // console.log(1)
+// myPro(5).then(
+//     res=> myPro(res).then(res2=> console.log(res2))
+// )
 //then catch
 //async await
-
-
-
+// async function a(){}
+//const a = async function(){}
+//const a = async()=>{}
+const proCall = async() =>{
+    try{
+        let x =  await myPro("a")
+        let y = await myPro(x)
+        let z = await myPro(y)
+        console.log(z)        
+    }
+    catch(e){
+        console.log(e)
+    }
+}
+proCall()
 
 
 
