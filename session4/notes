@@ -1,6 +1,3 @@
-0 123  marwa   1000   add transaction    delete     => name , intialBalance
-add Transaction => local storage id=0, users = []
-
-type, value  users , single = users[index] => findIndex
-
-balance, type, select=> users
+npm init --y 
+npmjs.com
+npm i validator

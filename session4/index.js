@@ -7,4 +7,6 @@
 // const play = require("./play.js")
 // play.test()
 
-const validator= require('validator')
+// const validator= require('validator')
+// let test = validator.isMobilePhone("01034567891", ['ar-EG'])
+// console.log(test)
