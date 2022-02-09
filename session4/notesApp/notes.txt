@@ -1,0 +1,14 @@
+create json file as database [ {} , {}]
+
+create task
+read all tasks
+read single task
+edit task
+delete task
+
+task => { id, unique id, title, phone, email , content, addedAt }
+
+build in => fs
+installs from npm =>  uniqueID , validation, chalk
+myOwnModules => tasks.js (5 methods), fileUsage( read, write into file)
+server.js => main
