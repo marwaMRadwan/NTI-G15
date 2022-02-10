@@ -1,0 +1,16 @@
+/*
+user = {
+    id => 1, 2 ,3 
+    name: required
+    phone isMobile Egypt
+    age >21
+    addresses: [
+        {addrType:"home", addrDetails:"5 st x"},
+        ......
+    ],
+    email isemail
+    url is url
+    addedAt 
+    updatedAt
+}
+*/
