@@ -1,7 +1,7 @@
 /*
 user = {
     id => 1, 2 ,3 
-    name: required
+    name: required minlength 3
     phone isMobile Egypt
     age >21
     addresses: [

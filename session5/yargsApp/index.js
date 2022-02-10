@@ -1,6 +1,5 @@
 const yargs = require("yargs")
 const users= require('./utils/users')
-
 yargs.command({
     command:"addUser",
     describe:"add new user data",
@@ -11,9 +10,19 @@ yargs.command({
         email:{demandOption:true, describe:"user email"},
         url:{demandOption:true, describe:"user url"},
     },
-    handler:(argv)=>{
-        users.addUser(argv)
-    }
+    handler:(argv)=>users.addUser(argv)
 })
-
+yargs.command({
+    command:"showAll",
+    handler:()=>users.showAll()
+})
+yargs.command({
+    command:"addAddressToUser",
+    builder:{
+        id:{demandOption:true},
+        addrType:{demandOption:true},
+        addrDetails:{demandOption:true}
+    },
+    handler: (argv)=> users.addAddress(argv)
+})
 yargs.argv

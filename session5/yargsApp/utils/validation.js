@@ -14,7 +14,7 @@ const userData = [
         ele: "phone",
         default: false,
         invalid:
-            (data) => !validtor.isMobilePhone(data, ['ar-EG']) ? "invalid phone" : false
+        (data) => !validtor.isMobilePhone(data, ['ar-EG']) ? "invalid phone" : false
     },
     {
         ele: "age",
@@ -22,7 +22,7 @@ const userData = [
         invalid: (data) => data < 21 ? "invalid age" : false
 
     },
-    { ele: "addresses", default: [], invalid: (data) => true },
+    { ele: "addresses", default: [], invalid: (data) => false },
     {
         ele: "email", default: false,
         invalid:
@@ -35,12 +35,12 @@ const userData = [
     {
         ele: "addedAt",
         default: dealWithData.timeFormatter(new Date()),
-        invalid: (data) => true
+        invalid: (data) => false
     },
     {
         ele: "updatedAt",
         default: dealWithData.timeFormatter(new Date()),
-        invalid: (data) => true
+        invalid: (data) => false
     }
 ]
 module.exports = userData
