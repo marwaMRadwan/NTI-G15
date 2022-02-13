@@ -22,6 +22,42 @@
   </button>
 </div>
 <section class="container">
-    Home
+    {{!-- <ul>
+      {{#each data}}
+      <li>{{this}}</li>
+      {{/each}}
+    </ul> --}}
+    <table class="table table-bordered my-3">
+      <tr class="text-center">
+        <th rowspan="2">id</th>
+        <th rowspan="2">name</th>
+        <th rowspan="2">username</th>
+        <th rowspan="2">email</th>
+        <th colspan="4">address</th>
+        <th rowspan="2">phone</th>
+        <th rowspan="2">website</th>
+      </tr>
+      <tr class="text-center">
+        <th>street</th>
+        <th>suite</th>
+        <th>city</th>
+        <th>zipcode</th>
+      </tr>
+{{#each data}}
+  <tr>
+   <th>{{this.id}}</th>
+        <th>{{this.name}}</th>
+        <th>{{this.username}}</th>
+        <th>{{this.email}}</th>
+        <th>{{this.address.street}}</th>
+        <th>{{this.address.suite}}</th>
+        <th>{{this.address.city}}</th>
+        <th>{{this.address.zipcode}}</th>
+        <th>{{this.phone}}</th>
+        <th>{{this.website}}</th>
+  </tr>
+  {{/each}}
+
+    </table>
 </section>
 {{>footer}}

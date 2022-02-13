@@ -1,6 +1,15 @@
 {{>header}}
 {{>navbar}}
 <section class="container">
-    Contact
+    <div class="row">
+        {{#each images}}
+        <div class="col-md-4 col-12">
+            <div class="m-2 border border-2 border-primary">
+                <img class="img-fluid" src="{{this.url}}">
+                <h5>{{this.title}}</h5>
+            </div>
+        </div>
+        {{/each}}
+    </div>
 </section>
 {{>footer}}
