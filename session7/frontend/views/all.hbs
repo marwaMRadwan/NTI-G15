@@ -18,9 +18,13 @@
         {{else}}
             {{#each allPlayers}}
             <tr>
-                <td>1</td>
+                <td>{{this.id}}</td>
                 <td>{{this.name}}</td>
                 <td>{{this.age}}</td>
+                <td>
+                    <a href="/single/{{this.id}}" class="btn btn-success mx-2">Show</a>
+                    <a href="/edit/{{this.id}}" class="btn btn-warning mx-2">Edit</a>
+                </td>
             </tr>
             {{/each}}
         {{/if}}
