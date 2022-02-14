@@ -1,0 +1,13 @@
+players => name, age, start date, end date, id, status
+
+add players    localhost:3000/add
+show all players localhost:3000
+show single players localhost:3000/player/playerid
+edit players   localhost:3000/edit/playerid
+delete players  localhost:3000/delete/playerid
+delete all    localhost:3000/delAll/playerid
+
+error 404
+
+npm init --y
+npm i express hbs uniqid
