@@ -1,3 +1,8 @@
 npm init --y 
 npmjs.com
 npm i validator
+\\\
+chalk
+
+
+npm i chalk@4.0.0

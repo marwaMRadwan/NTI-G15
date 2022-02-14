@@ -11,3 +11,14 @@ error 404
 
 npm init --y
 npm i express hbs uniqid
+
+player = {
+    id:1,
+    name:"marwa",
+    age:36,
+    attedence:[
+        date:"1/1/2022 10:00:00",
+        date:
+        ......
+    ]
+}

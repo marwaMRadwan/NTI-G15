@@ -16,7 +16,8 @@ const addPlayers = (req,res)=>{
         allPlayers.push({
             id:uniqid(),
             name: req.query.name,
-            age:req.query.age
+            age:req.query.age,
+            att:[]
         })
         dealWithData.writeDataToFile('./models/data.json', allPlayers)
         return res.redirect('/')
@@ -37,7 +38,8 @@ const addPostLogic=(req,res)=>{
     allPlayers.push({
         id:uniqid(),
         name: req.body.name,
-        age:req.body.age
+        age:req.body.age,
+        att:[]
     })
     dealWithData.writeDataToFile('./models/data.json', allPlayers)
     res.redirect('/')
@@ -71,6 +73,13 @@ const delAll = (req,res)=>{
     dealWithData.writeDataToFile('./models/data.json', [])
     res.redirect("/")
 }
+const delUser = (req,res)=>{
+    const allPlayers = dealWithData.readDataFromJSON('./models/data.json')
+    const users = allPlayers.filter(player=> player.id != req.params.id )
+    dealWithData.writeDataToFile('./models/data.json', users)
+    res.redirect("/")    
+
+}
 module.exports = {
     allPlayers, 
     addPlayers, 
@@ -79,5 +88,6 @@ module.exports = {
     showSingle, 
     editSingle, 
     editSingleLogic, 
-    delAll
+    delAll, 
+    delUser
 }

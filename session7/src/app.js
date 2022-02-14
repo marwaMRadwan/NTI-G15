@@ -9,4 +9,8 @@ hbs.registerPartials(path.join(__dirname, "../frontend/layouts"))
 app.use(express.urlencoded({extended:true}))
 const playerRoutes = require("../routes/players.routes")
 app.use(playerRoutes)
+
+app.get('*', (req,res)=> res.send('page not found'))
+app.post('*', (req,res)=> res.send('page not found'))
+
 module.exports = app

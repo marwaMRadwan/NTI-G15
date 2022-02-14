@@ -1,6 +1,5 @@
 const dealWithData = require("./dealWithData")
 const userData = require('./validation')
-
 const addUser = (args)=> {
     let errors = []
     let user = {}
@@ -46,4 +45,42 @@ const addAddress = (data)=>{
         console.log(e.message)
     }
 }
-module.exports = {addUser, showAll, addAddress}
+const deleteAll = () => {
+    dealWithData.writeDataToFile([])
+    console.log("all data deleted")
+}
+const deleteSingle = (data) => {
+    try{
+        const users = dealWithData.readDataFromJSON("./db/data.json")
+        let userIndex = users.findIndex(u=> u.id==data.id)
+        if(userIndex==-1) throw new Error("user not found")
+        users.splice(userIndex,1)
+        dealWithData.writeDataToFile('./db/data.json', users)
+        console.log("data added");
+    }
+    catch(e){
+        console.log(e.message)
+    }
+
+}
+const showSingle = (data) => {
+    try{
+        const users = dealWithData.readDataFromJSON("./db/data.json")
+        let user = users.find(u=> u.id==data.id)
+        if(!user) throw new Error("user not found")
+        console.log(user);
+    }
+    catch(e){
+        console.log(e.message)
+    }
+
+}
+
+module.exports = { 
+    addUser, 
+    showAll, 
+    addAddress,
+    deleteAll,
+    deleteSingle,
+    showSingle
+}

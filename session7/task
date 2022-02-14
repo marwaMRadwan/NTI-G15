@@ -1,0 +1,7 @@
+task => title(unique), content
+add new task 
+edit task
+delete
+delete all
+show all
+show single

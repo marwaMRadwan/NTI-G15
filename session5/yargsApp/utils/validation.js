@@ -1,6 +1,5 @@
 dealWithData = require("./dealWithData")
 const validtor = require("validator")
-
 const userData = [
     {
         ele: "name",
@@ -14,7 +13,7 @@ const userData = [
         ele: "phone",
         default: false,
         invalid:
-        (data) => !validtor.isMobilePhone(data, ['ar-EG']) ? "invalid phone" : false
+            (data) => !validtor.isMobilePhone(data, ['ar-EG']) ? "invalid phone" : false
     },
     {
         ele: "age",
