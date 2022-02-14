@@ -25,4 +25,16 @@ const addPlayers = (req,res)=>{
         // x:{name:"a", age:"30"}
     })
 }
-module.exports = {allPlayers, addPlayers}
+const addPost = (req, res)=>{
+    res.render('addpost', {pageTitle:"add user(post method)"})
+}
+const addPostLogic=(req,res)=>{
+    const allPlayers = dealWithData.readDataFromJSON('./models/data.json')
+    allPlayers.push({
+        name: req.body.name,
+        age:req.body.age
+    })
+    dealWithData.writeDataToFile('./models/data.json', allPlayers)
+    res.redirect('/')
+}
+module.exports = {allPlayers, addPlayers, addPost, addPostLogic}
