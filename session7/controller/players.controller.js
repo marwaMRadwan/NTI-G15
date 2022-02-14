@@ -1,6 +1,12 @@
 const dealWithData = require("./helpers/dealWithData")
 const allPlayers = (req,res)=>{
-    res.render("all")
+    const allPlayers = dealWithData.readDataFromJSON('./models/data.json')
+    res.render("all",
+    {
+        pageTitle:"all players",
+        allPlayers,
+        isEmpty: allPlayers.length==0? true: false
+    })
 }
 const addPlayers = (req,res)=>{
     if(req.query.name&&req.query.age){

@@ -1,0 +1,29 @@
+{{>header}}
+{{>navbar}}
+<table class="table table-bordered my-4">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>age</th>
+            <th>controls</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#if isEmpty}}
+            <tr class="alert alert-danger text-center">
+                <td colspan="4">No Users Yet</td>
+            </tr>
+        {{else}}
+            {{#each allPlayers}}
+            <tr>
+                <td>1</td>
+                <td>{{this.name}}</td>
+                <td>{{this.age}}</td>
+            </tr>
+            {{/each}}
+        {{/if}}
+    </tbody>
+</table>
+{{>footer}}
