@@ -50,4 +50,34 @@ const showSingle = (req,res)=>{
         user
     })
 }
-module.exports = {allPlayers, addPlayers, addPost, addPostLogic, showSingle}
+const editSingle = (req,res)=>{
+    const allPlayers = dealWithData.readDataFromJSON('./models/data.json')
+    const user = allPlayers.find(player=> player.id == req.params.id )
+    res.render('edit', {
+        pageTitle:"Edit data",
+        user
+    })
+}
+const editSingleLogic = (req,res)=>{
+    const allPlayers = dealWithData.readDataFromJSON('./models/data.json')
+    const userId = allPlayers.findIndex(player=> player.id == req.params.id )
+    allPlayers[userId].name=req.body.name
+    allPlayers[userId].age=req.body.age
+    dealWithData.writeDataToFile('./models/data.json', allPlayers)
+    res.redirect("/")    
+}
+
+const delAll = (req,res)=>{
+    dealWithData.writeDataToFile('./models/data.json', [])
+    res.redirect("/")
+}
+module.exports = {
+    allPlayers, 
+    addPlayers, 
+    addPost, 
+    addPostLogic, 
+    showSingle, 
+    editSingle, 
+    editSingleLogic, 
+    delAll
+}
