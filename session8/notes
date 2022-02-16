@@ -1,0 +1,11 @@
+collections => documents
+table       => record
+
+db => collections(user) => record(documents)
+
+{
+    name:"marwa", age:36, _id: objectId
+}
+
+
+[]  { }  json data
