@@ -14,4 +14,5 @@ router.post('/delAll', playersController.delAll)
 // router.get('/delAll', playersController.delAll)
 
 router.get('/del/:id', playersController.delUser)
+router.get('/addAge/:id', playersController.addAge)
 module.exports = router

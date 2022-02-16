@@ -23,7 +23,7 @@ const addPostLogic=(req,res)=>{
     dbcon((e, client, db)=>{
      if(e) return res.send(e.message)
      db.collection('data')
-     .insertOne(req.body, 
+     .insertOne({name:req.body.name, age:parseInt(req.body.age)}, 
        (error, result)=>{
         if(error) return res.send(error)
         client.close()
@@ -44,22 +44,69 @@ const showSingle = (req,res)=>{
                 )
             })
         })
+        dbcon((e, client, db)=>{
+        db.collection('data')
+        .findOne({_id: new ObjectId(req.params.id)})
+        .then(data=>console.log(data))
+        .catch(e=> console.log(e))
+    })
+    dbcon(async(e, client, db)=>{
+        try{
+            let x = await db.collection('data')
+            .findOne({_id: new ObjectId(req.params.id)})
+            console.log(x)    
+        }
+        catch(e){ console.log(e)}
+    })
+
 }
 const editSingle = (req,res)=>{
-    const allPlayers = dealWithData.readDataFromJSON('./models/data.json')
-    const user = allPlayers.find(player=> player.id == req.params.id )
-    res.render('edit', {
-        pageTitle:"Edit data",
-        user
+    dbcon(async(e, client, db)=>{
+        try{
+            let user= await db.collection('data')
+            .findOne({_id: new ObjectId(req.params.id)})
+            res.render('edit', {
+                pageTitle:"Edit data",
+                user
+            })
+        
+        }
+        catch(e){ console.log(e)}
     })
+
 }
 const editSingleLogic = (req,res)=>{
-    const allPlayers = dealWithData.readDataFromJSON('./models/data.json')
-    const userId = allPlayers.findIndex(player=> player.id == req.params.id )
-    allPlayers[userId].name=req.body.name
-    allPlayers[userId].age=req.body.age
-    dealWithData.writeDataToFile('./models/data.json', allPlayers)
-    res.redirect("/")    
+    dbcon(async(e, client, db)=>{
+        try{
+            req.body.age = parseInt(req.body.age)
+             await db.collection('data')
+            .updateOne(
+                {_id: new ObjectId(req.params.id)},
+                {
+                    $set:{...req.body}
+            }
+                )
+            res.redirect("/")
+        
+        }
+        catch(e){ console.log(e)}
+    })
+}
+const addAge = (req,res)=>{
+    dbcon(async(e, client, db)=>{
+        try{
+            await db.collection('data')
+            .updateOne(
+                {_id: new ObjectId(req.params.id)},
+                {
+                    $inc:{"age":1}
+            }
+                )
+            res.redirect("/")
+        
+        }
+        catch(e){ console.log(e)}
+    })
 }
 
 const delAll = (req,res)=>{
@@ -73,10 +120,13 @@ const delAll = (req,res)=>{
 
 }
 const delUser = (req,res)=>{
-    const allPlayers = dealWithData.readDataFromJSON('./models/data.json')
-    const users = allPlayers.filter(player=> player.id != req.params.id )
-    dealWithData.writeDataToFile('./models/data.json', users)
-    res.redirect("/")    
+    dbcon((e, client, db)=>{
+        if(e) return res.send(e.message)
+        db.collection('data').deleteOne({_id:new ObjectId(req.params.id)}).then(()=>{
+            client.close()    
+            res.redirect("/")}
+            )
+        })
 
 }
 module.exports = {
@@ -87,5 +137,6 @@ module.exports = {
     editSingle, 
     editSingleLogic, 
     delAll, 
-    delUser
+    delUser,
+    addAge
 }
