@@ -1,6 +1,4 @@
 const ObjectId = require("mongodb").ObjectId
-const dealWithData = require("./helpers/dealWithData")
-const uniqid = require("uniqid")
 const dbcon = require('../models/dbCon')
 const allPlayers = (req,res)=>{
     dbcon((e, client, db)=>{

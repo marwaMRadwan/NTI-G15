@@ -1,0 +1,25 @@
+{{>header}}
+{{>navbar}}
+{{#if msg}}
+    <div class="alert alert-danger">
+        {{msg}}
+    </div>
+    {{/if}}
+    <form method="post" >
+        <div class="mb-3">
+            <input class="form-control" placeholder="name" name="name" value="{{user.name}}">
+        </div>
+        <div class="mb-3">
+            <input class="form-control" placeholder="email" name="email" value="{{user.email}}">
+        </div>
+        <div class="mb-3">
+            <input class="form-control" placeholder="phone" name="phone" value="{{user.phone}}">
+        </div>
+        <div class="mb-3">
+            <input class="form-control" placeholder="password" name="password"  value="{{user.password}}">
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-primary">add</button>
+        </div>
+    </form>
+{{>footer}}

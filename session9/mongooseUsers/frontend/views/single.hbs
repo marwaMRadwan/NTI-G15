@@ -1,0 +1,71 @@
+{{>header}}
+{{>navbar}}
+<div class="p-3">
+    {{#if user}}
+        <div class="row">
+            <div class="col-4">
+            <div class="m-2 border border-3 border-primary p-5">
+                User Id:{{user._id}}
+            </div>
+            </div>
+            <div class="col-4">
+            <div class="m-2 border border-3 border-primary p-5">
+                User Name:{{user.name}}
+            </div>
+            </div>
+            <div class="col-4">
+            <div class="m-2 border border-3 border-primary p-5">
+                User phone:{{user.phone}}
+            </div>
+            </div>
+            <div class="col-4">
+            <div class="m-2 border border-3 border-primary p-5">
+                User Email:{{user.email}}
+            </div>
+            </div>
+            <div class="col-4">
+            <div class="m-2 border border-3 border-primary p-5">
+                User Password:{{user.password}}
+            </div>
+            </div>
+            <div class="col-4">
+            <div class="m-2 border border-3 border-primary p-5">
+                User Status:{{user.status}}
+            </div>
+            </div>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>#</td>
+            <td>subject</td>
+            <td>degree</td>
+        </tr>
+        {{#unless hasGrades}}
+        <tr>    
+            <td colspan="3"> no grades yet</td>
+        </tr>
+        {{else}}
+        {{#each user.grades}}
+        <tr>
+            <td>{{this._id}}</td>
+            <td>{{this.subject}}</td>
+            <td>{{this.degree}}</td>
+            <td>
+                <a class="btn btn-danger" href="/delGrade/{{this._id}}">delete</button>
+            </td>
+        </tr>
+        {{/each}}
+        <tr>
+            <td colspan="2">total</td>
+            <td>{{total}}</td>
+        </tr>
+
+        {{/unless}}
+    </thead>
+</table>
+        </div>
+    {{else}}
+        user not found
+    {{/if}}
+</div>
+{{>footer}}

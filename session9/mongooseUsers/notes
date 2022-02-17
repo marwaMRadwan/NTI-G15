@@ -1,0 +1,11 @@
+user=> name, password, grades [], status, phone number, type
+
+all
+single => name , grades table=> with total, 
+
+
+
+grades [
+     {sub:"x", degree:5},
+    {}
+]

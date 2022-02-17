@@ -53,7 +53,9 @@ const editSingle = async(req,res)=>{
 }
 const editSingleLogic = async(req,res)=>{
     try{
-     await userModel.findByIdAndUpdate(req.params.id, req.body)
+     await userModel.findByIdAndUpdate(req.params.id, req.body, {
+        runValidators:true
+    })
      res.redirect('/') 
     }
     catch(e){

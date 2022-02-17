@@ -1,0 +1,19 @@
+{{>header}}
+{{>navbar}}
+{{#if msg}}
+    <div class="alert alert-danger">
+        {{msg}}
+    </div>
+    {{/if}}
+    <form method="post" >
+        <div class="mb-3">
+            <input class="form-control" placeholder="subject" name="subject" value="{{grade.subject}}">
+        </div>
+        <div class="mb-3">
+            <input class="form-control" placeholder="degree" name="degree" value="{{grade.degree}}">
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-primary">add</button>
+        </div>
+    </form>
+{{>footer}}
