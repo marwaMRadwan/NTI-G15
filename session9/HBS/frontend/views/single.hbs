@@ -1,0 +1,12 @@
+{{>header}}
+{{>navbar}}
+<div class="border border-3 border-primary p-3">
+    {{#if user}}
+        {{user._id}}<br>
+        {{user.name}}<br>
+        {{user.age}}
+    {{else}}
+        user not found
+    {{/if}}
+</div>
+{{>footer}}
