@@ -4,7 +4,7 @@ class User{
     static register= async(req,res)=>{
         try{
             const user = new userModel(req.body)
-            await user.save()
+            await user.save() //methods
             res.send({
                 apiStatus:true, data: user, message:"data added successfuly"
             })
@@ -15,7 +15,7 @@ class User{
     }
     static getAll = async(req,res)=>{
         try{
-            const users = await userModel.find()
+            const users = await userModel.find() //statics
             res.send({
                 apiStatus:true, data: users, message:"data featched successfuly"
             })
@@ -26,7 +26,7 @@ class User{
     }
     static getSingle = async(req,res)=>{
         try{
-            const user = await userModel.findById(req.params.id)
+            const user = await userModel.findById(req.params.id) //statics
             res.send({
                 apiStatus:true, data: user, message:"data featched successfuly"
             })
@@ -55,6 +55,15 @@ class User{
         }
         catch(e){
             res.send({apiStatus:false, data:e.message, message:"error deleting user"})
+        }
+    }
+    static login = async(req,res)=>{
+        try{
+            const user = await userModel.login(req.body.email, req.body.password)
+            res.send(user)
+        }
+        catch(e){
+            res.send(e.message)
         }
     }
 }
