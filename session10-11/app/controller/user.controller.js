@@ -30,6 +30,26 @@ class User{
     static me = async(req,res)=>{
         res.send({apiStatus:true,data:req.user, message:'data featched'})
     }
+    static logout = async(req,res)=>{
+        try{
+            req.user.tokens = req.user.tokens.filter( t => t.token != req.token )
+            await req.user.save()
+            res.send({apiStatus:true, data:{}, message:"logged out"})
+        }
+        catch(e){
+            res.send({apiStatus:false, data:e.message, message:"error in logout"})
+        }
+    }
+    static logoutAll = async(req,res)=>{
+        try{
+            req.user.tokens = []
+            await req.user.save()
+            res.send({apiStatus:true, data:{}, message:"logged out"})
+        }
+        catch(e){
+            res.send({apiStatus:false, data:e.message, message:"error in logout"})
+        }
+    }
     static getAll = async(req,res)=>{
         try{
             const users = await userModel.find() //statics
