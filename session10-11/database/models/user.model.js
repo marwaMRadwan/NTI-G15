@@ -54,7 +54,6 @@ userSchema.pre("save", async function(){
     if(this.isModified("password")) 
         this.password = await bcrypt.hash(this.password, parseInt(process.env.salt))
 })
-//methods   statics
 userSchema.statics.login = async(email, password)=>{
     const userData = await user.findOne({email})
     if(!userData) throw new Error('invalid email')

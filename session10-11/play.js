@@ -12,3 +12,5 @@ const x = jwt.sign({id:5}, 's11')
 console.log(x)
 const d = jwt.verify(x, 's11')
 console.log(d)
+
+//123  1  

@@ -27,6 +27,9 @@ class User{
             res.send({apiStatus:false, data:e.message, message:"invalid login"})
         }
     }
+    static me = async(req,res)=>{
+        res.send({apiStatus:true,data:req.user, message:'data featched'})
+    }
     static getAll = async(req,res)=>{
         try{
             const users = await userModel.find() //statics
