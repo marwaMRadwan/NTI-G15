@@ -1,13 +1,13 @@
 const userModel = require("../../database/models/user.model")
 const sendEmail = require("../helper/email.helper")
 // const otpGenerator = require("otp-generator")
-const path = require("path")
 const otpGen = require("../helper/otp-gen")
 var QRCode = require('qrcode')
 const fs = require('fs')
 class User{
     static register= async(req,res)=>{
         try{
+            req.body.userType = "admin"
             const user = new userModel(req.body)
             await user.save() //methods
             sendEmail(user.email, "<h5>hello from app</h5>", "app s12", "register")
@@ -108,10 +108,11 @@ class User{
     }
     static profileImg = async (req, res) =>{
         try{
-            const newName = `${req.file.path}${path.extname(req.file.originalname)}`
-            fs.rename(req.file.path, newName, ()=>{})
-            req.user.image = newName
+            // const newName = `${req.file.path}${path.extname(req.file.originalname)}`
+            // fs.rename(req.file.path, newName, ()=>{})
+            req.user.image = req.file.path
             await req.user.save()
+            console.log(req.file)
             res.send({apiStatus:true, data:req.user, message:"image uploaded"})
         }
         catch(e){
