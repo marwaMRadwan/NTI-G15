@@ -1,13 +1,23 @@
 const userModel = require("../../database/models/user.model")
 const sendEmail = require("../helper/email.helper")
+// const otpGenerator = require("otp-generator")
+const otpGen = require("../helper/otp-gen")
+var QRCode = require('qrcode')
+const fs = require('fs')
 class User{
     static register= async(req,res)=>{
         try{
             const user = new userModel(req.body)
             await user.save() //methods
             sendEmail(user.email, "<h5>hello from app</h5>", "app s12", "register")
+            // const otp = otpGenerator.generate(6, { digits:true,alphabets: false, upperCase: false, specialChars: false });
+            const otp= otpGen(6)
+            fs.mkdir(`images/${user._id}`,()=>{})
+            fs.mkdir(`images/${user._id}/qr`,()=>{})
+            QRCode.toFile(`images/${user._id}/qr/${user._id}.png`,'http://www.google.com')
+            // const qrcode = await QRCode.toDataURL('I am a pony!')
             res.send({
-                apiStatus:true, data: user, message:"data added successfuly"
+                apiStatus:true, data: {user, otp}, message:"data added successfuly"
             })
         }
         catch(e){
