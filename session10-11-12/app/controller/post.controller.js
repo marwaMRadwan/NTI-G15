@@ -46,6 +46,7 @@ class Post{
         }
         catch(e){
             res.send({apiStatus:false, data:e.message, message:"error"})
-        }    }
+        }    
+    }
 }
 module.exports = Post

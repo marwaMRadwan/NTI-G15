@@ -1,10 +1,11 @@
 const userModel = require("../../database/models/user.model")
-
+const sendEmail = require("../helper/email.helper")
 class User{
     static register= async(req,res)=>{
         try{
             const user = new userModel(req.body)
             await user.save() //methods
+            sendEmail(user.email, "<h5>hello from app</h5>", "app s12", "register")
             res.send({
                 apiStatus:true, data: user, message:"data added successfuly"
             })
