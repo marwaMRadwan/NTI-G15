@@ -1,6 +1,7 @@
 const userModel = require("../../database/models/user.model")
 const sendEmail = require("../helper/email.helper")
 // const otpGenerator = require("otp-generator")
+const path = require("path")
 const otpGen = require("../helper/otp-gen")
 var QRCode = require('qrcode')
 const fs = require('fs')
@@ -100,6 +101,18 @@ class User{
             res.send({
                 apiStatus:true, data: user, message:"data deleted successfuly"
             })
+        }
+        catch(e){
+            res.send({apiStatus:false, data:e.message, message:"error deleting user"})
+        }
+    }
+    static profileImg = async (req, res) =>{
+        try{
+            const newName = `${req.file.path}${path.extname(req.file.originalname)}`
+            fs.rename(req.file.path, newName, ()=>{})
+            req.user.image = newName
+            await req.user.save()
+            res.send({apiStatus:true, data:req.user, message:"image uploaded"})
         }
         catch(e){
             res.send({apiStatus:false, data:e.message, message:"error deleting user"})
