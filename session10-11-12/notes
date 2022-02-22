@@ -1,0 +1,12 @@
+users => name, profile image, password, year of birth, username
+images => userId, image path
+
+regiter, 
+login , 
+logout, 
+edit profile, 
+edit profile image, 
+get profile
+add image, 
+view my images, 
+delete image

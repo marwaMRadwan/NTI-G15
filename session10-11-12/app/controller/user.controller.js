@@ -112,7 +112,7 @@ class User{
             // fs.rename(req.file.path, newName, ()=>{})
             req.user.image = req.file.path
             await req.user.save()
-            console.log(req.file)
+            // console.log(req.file)
             res.send({apiStatus:true, data:req.user, message:"image uploaded"})
         }
         catch(e){
