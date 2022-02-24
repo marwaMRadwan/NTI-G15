@@ -45,3 +45,48 @@ u1.hello()
 // u2.age=50
 // console.log(u2.age)
 
+//inheritance
+/* 
+class User => name, age, add
+class teacher => name, age, add, sal
+class student=> name, age, add, grades
+*/
+
+class User{
+    private static count = 0 
+    name:string ="a"
+    protected age:number
+    address: string[]
+    constructor(name:string, age:number, address:string[]){
+        this.name=name
+        this.age=age
+        this.address=address
+        User.count++
+    }
+    hello(){
+        console.log('hello')
+    }
+    static register(){
+
+    }
+}
+
+class Teacher extends User{
+    sal:number
+    constructor(name:string, age:number, address:string[], sal:number){
+        super(name, age, address)
+        this.sal = sal
+    }
+    hello(){
+        console.log('hi')
+        console.log(this.age)
+    }
+}
+let t1 = new Teacher("marwa", 36, [], 1000)
+// console.log(t1.name)
+t1.hello()
+
+let u1 = new User("m",2,[])
+let u2 = new User("m",2,[])
+
+
