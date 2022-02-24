@@ -18,7 +18,7 @@
 
 //oop => class -> objects
 // string => substr split splice ..... index 
-//class - constructor - overloading- access modifiers- readonly -method - object
+//class - constructor - no overloading- access modifiers- readonly -method - object
 class User{
     //public private protected
     private name:string
@@ -31,32 +31,17 @@ class User{
     hello():void{
         console.log(this.name)
     }
+    set _name(val:string){
+        this.name = val
+    }
+    get _name(){ return this.name}
 }
 let u1 = new User("marwa", 36)
+u1._name = "mazen"
+console.log(u1._name)
 u1.hello()
 // console.log(u1.age)
 // let u2 = new User()
 // u2.age=50
 // console.log(u2.age)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
