@@ -9,6 +9,7 @@ const auth = async(req,res, next)=>{
     //check _id, token in db
     const user = await userModel.findOne({_id:d_token._id, 'tokens.token':token})
     if(!user) throw new Error("invalid user")
+    // if(user.role!="admin") throw new Error()
     req.user = user
     req.token = token
     //next

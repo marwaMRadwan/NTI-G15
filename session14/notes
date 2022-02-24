@@ -1,0 +1,22 @@
+string
+int
+float
+decimal
+double
+boolean
+char
+object
+class
+function
+
+-unknown
+  - any
+    - void --> undefined
+    - null
+    - boolean    
+    - number => enum number
+    - bigint   
+    - string => string enum
+    - symbol   => unique symbols 
+    - object => array, tuple, function, constructor function
+never
