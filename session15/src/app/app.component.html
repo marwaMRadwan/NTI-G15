@@ -77,13 +77,32 @@
             False Status
         </div>
     </ng-template> -->
-    <input class="form-control" [(ngModel)]="moNum">
-    <div [ngSwitch]="moNum">
-        <p *ngSwitchCase="1">jan</p>
-        <p *ngSwitchCase="2">feb</p>
-        <p *ngSwitchCase="3">mar</p>
-        <p *ngSwitchCase="4">apr</p>
-        <p *ngSwitchCase="5">may</p>
+    <!-- <input class="form-control" [(ngModel)]="yOfBirth">
+    <div [ngSwitch]="yOfBirth%12">
+        <ng-container *ngFor="let item of x; let i = index">
+            <p *ngSwitchCase="i">
+                {{item}}
+            </p>
+        </ng-container>
         <p *ngSwitchDefault>invalid</p>
-    </div>
+    </div> -->
+    <input class="form-control" [(ngModel)]="serKey" (input)="filterData()">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>userId</th>
+                <th>id</th>
+                <th>title</th>
+                <th>completed</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of data">
+                <td>{{p.userId}}</td>
+                <td>{{p.id}}</td>
+                <td>{{p.title}}</td>
+                <td>{{p.completed}}</td>
+            </tr>
+        </tbody>
+    </table>
 </section>
