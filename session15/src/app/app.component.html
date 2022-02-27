@@ -21,7 +21,44 @@
     <button class="btn btn-primary" (click)="testEvent()" >test me</button>
     <h5>{{x}}</h5>
     <input class="form-control" (keyup.enter)="testInput($event)"> -->
-    <h4>Two Way Binding</h4>
+    <!-- <h4>Two Way Binding</h4>
     <input class="form-control" [(ngModel)]="testVal">
-    {{testVal}}
+    {{testVal}} -->
+    <h4>Directives</h4>
+    <h5>Structural directives (for, if, switch)</h5>
+    <!-- <h5>Attribute directives (ngModel, ngClass, ....)</h5> -->
+    <h6>*ngFor</h6>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>first</th>
+                <th>last</th>
+                <th>odd</th>
+                <th>even</th>
+                <th>title</th>
+                <th>image</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="
+            let img of data; 
+            let i =index; 
+            let o=odd; 
+            let e=even;
+            let f=first;
+            let l = last
+            "
+            [ngClass]="{'alert':true, 'alert-danger':o, 'alert-primary':e}"
+            >
+                <td>{{i}}</td>
+                <td>{{f}}</td>
+                <td>{{l}}</td>
+                <td>{{o}}</td>
+                <td>{{e}}</td>
+                <td>{{img.title}}</td>
+                <td><img width="50" height="50" [src]="img.url"></td>
+            </tr>
+        </tbody>
+    </table>
 </section>
