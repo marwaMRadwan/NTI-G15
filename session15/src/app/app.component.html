@@ -1,0 +1,24 @@
+<router-outlet></router-outlet>
+<section class="container">
+    <!-- <h2 class="'text-danget">Data Binding</h2>
+    <h4>Interpolation</h4>
+    <div>
+        <p>{{title}}</p>
+        <p>{{5+3}}</p>
+        <p>{{5*3}}</p>
+        <p>{{x==y}}</p>
+        <p>{{hello()}}</p>
+        <img src="{{imgSrc}}">
+        
+    </div>
+    <h4>Property Binding</h4>
+    <div>
+        <img [src]="imgSrc">
+        <div [innerHTML]="content"></div>
+        <P [style.color]="'red'">HELLO</P>
+    </div> -->
+    <h4>Event Binding</h4>
+    <button class="btn btn-primary" (click)="testEvent()" >test me</button>
+    <h5>{{x}}</h5>
+    <input class="form-control" (keyup.enter)="testInput($event)">
+</section>
