@@ -17,8 +17,11 @@
         <div [innerHTML]="content"></div>
         <P [style.color]="'red'">HELLO</P>
     </div> -->
-    <h4>Event Binding</h4>
+    <!-- <h4>Event Binding</h4>
     <button class="btn btn-primary" (click)="testEvent()" >test me</button>
     <h5>{{x}}</h5>
-    <input class="form-control" (keyup.enter)="testInput($event)">
+    <input class="form-control" (keyup.enter)="testInput($event)"> -->
+    <h4>Two Way Binding</h4>
+    <input class="form-control" [(ngModel)]="testVal">
+    {{testVal}}
 </section>
