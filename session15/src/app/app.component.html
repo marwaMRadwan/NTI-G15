@@ -27,7 +27,7 @@
     <h4>Directives</h4>
     <h5>Structural directives (for, if, switch)</h5>
     <!-- <h5>Attribute directives (ngModel, ngClass, ....)</h5> -->
-    <h6>*ngFor</h6>
+    <!-- <h6>*ngFor</h6>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -60,5 +60,30 @@
                 <td><img width="50" height="50" [src]="img.url"></td>
             </tr>
         </tbody>
-    </table>
+    </table> -->
+    <!-- <button 
+    (click)="showHide()" 
+    [ngClass]="{'btn':true, 'btn-danger':status, 'btn-primary':!status}">
+    {{btnText}}
+</button>
+    <div *ngIf="status;then thenDiv; else elseDiv"></div>
+    <ng-template #thenDiv>
+        <div class="alert alert-primary">
+            True Status
+        </div>
+    </ng-template>
+    <ng-template #elseDiv>
+        <div class="alert alert-success">
+            False Status
+        </div>
+    </ng-template> -->
+    <input class="form-control" [(ngModel)]="moNum">
+    <div [ngSwitch]="moNum">
+        <p *ngSwitchCase="1">jan</p>
+        <p *ngSwitchCase="2">feb</p>
+        <p *ngSwitchCase="3">mar</p>
+        <p *ngSwitchCase="4">apr</p>
+        <p *ngSwitchCase="5">may</p>
+        <p *ngSwitchDefault>invalid</p>
+    </div>
 </section>
