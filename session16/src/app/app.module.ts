@@ -10,6 +10,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { SliderComponent } from './pages/home/slider/slider.component';
 import { ServicesComponent } from './pages/home/services/services.component';
+import { CardComponent } from './shared/card/card.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ServicesComponent } from './pages/home/services/services.component';
     NavbarComponent,
     FooterComponent,
     SliderComponent,
-    ServicesComponent
+    ServicesComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
