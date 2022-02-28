@@ -1,0 +1,5 @@
+localhost:4200          => home
+              /about    => about
+              /contact  => contact
+
+ng g c pages/compName
