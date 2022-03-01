@@ -1,0 +1,29 @@
+<!-- template driven form -->
+<section class="my-5 container">
+    <h2 class="text-center text-primary">Register</h2>
+    <div>
+        {{registerForm.value|json}}
+    </div>
+    <form #registerForm = "ngForm" (ngSubmit)="handleRegister(registerForm)">
+        <div class="mb-3">
+            <label>Name</label>
+            <input name="name" placeholder="name" class="form-control" ngModel>
+        </div>
+        <div class="mb-3">
+            <label>Email</label>
+            <input name="email" placeholder="Email" class="form-control" ngModel>
+        </div>
+        <div class="mb-3">
+            <label>birthdate</label>
+            <input name="birthDate" placeholder="birthDate" type="date" class="form-control"  ngModel>
+        </div>
+
+        <div class="mb-3">
+            <label>Password</label>
+            <input name="Password" placeholder="password" type="password" class="form-control" ngModel>
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-primary">Register</button>
+        </div>
+    </form>
+</section>
