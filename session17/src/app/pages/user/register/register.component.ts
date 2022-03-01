@@ -8,14 +8,24 @@ import { AuthService } from 'src/app/providers/services/auth.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
+  msg:string=""
+  apiFlag:boolean=false
   constructor(private _auth:AuthService) { }
 
   ngOnInit(): void {
   }
   handleRegister(registerForm:NgForm){
-    console.log(registerForm.value)
-    this._auth.register(registerForm.value).subscribe(data=>console.log(data))
+    if(registerForm.valid){
+      this._auth.register(registerForm.value)
+      .subscribe(data=>{
+        console.log(data)
+        if(data.apiStatus){
+          this.msg="data added Succssfully"
+          this.apiFlag=true
+        }
+        else{ this.msg=data.message}
+      })
+    }
 
   }
 }

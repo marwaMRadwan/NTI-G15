@@ -1,9 +1,19 @@
 <section class="my-5 container">
     <h2 class="text-center text-primary">Login</h2>
-    <form>
+    {{loginForm.value|json}}
+    {{loginForm.valid}}
+    {{loginForm.invalid}}
+    {{loginForm.submitted}}
+    <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
         <div class="mb-3">
             <label>Email</label>
-            <input name="email" placeholder="Email" class="form-control">
+            <input  placeholder="Email" class="form-control"
+            name="email"
+            [(ngModel)]="d.email"
+            #email="ngModel"
+            required email
+            >
+            {{email.errors?.['requird']}}
         </div>
         <div class="mb-3">
             <label>Password</label>
