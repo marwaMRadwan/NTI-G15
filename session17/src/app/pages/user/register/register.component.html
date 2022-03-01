@@ -1,9 +1,9 @@
 <!-- template driven form -->
 <section class="my-5 container">
     <h2 class="text-center text-primary">Register</h2>
-    <div>
+    <!-- <div>
         {{registerForm.value|json}}
-    </div>
+    </div> -->
     <form #registerForm = "ngForm" (ngSubmit)="handleRegister(registerForm)">
         <div class="mb-3">
             <label>Name</label>
