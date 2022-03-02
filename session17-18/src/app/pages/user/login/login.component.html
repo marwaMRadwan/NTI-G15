@@ -1,6 +1,7 @@
 <!-- reactive form -->
 <section class="my-5 container">
     <h2 class="text-center text-primary">Login</h2>
+    <div class="alert alert-danger" *ngIf="msg!=''">{{msg}}</div>
     <form [formGroup]="loginForm" (ngSubmit)="login()">
         <div class="mb-3">
             <label>Email</label>
@@ -13,12 +14,18 @@
                 <li>{{ email?.touched }}</li>
                 <li>{{ email?.dirty }}</li> -->
                 <li *ngIf="email?.errors?.['required']">Email is Required</li>
-                <li *ngIf="email?.errors?.['email']">Email Invalid Format</li>
+                <li *ngIf="email?.errors?.['email']">password Invalid Format</li>
             </div>
         </div>
         <div class="mb-3">
             <label>Password</label>
             <input formControlName="password" placeholder="password" type="password" class="form-control">
+            <div class="alert alert-danger my-3" 
+            *ngIf="password?.invalid && (password?.dirty || password?.touched || isSubmitted)">
+                <li *ngIf="password?.errors?.['required']">password is Required</li>
+                <li *ngIf="password?.errors?.['minlength']">Email must be more than 3 chars</li>
+                <li *ngIf="password?.errors?.['maxlength']">Email must be less than 20 chars</li>
+            </div>
         </div>
         <div class="mb-3">
             <button class="btn btn-primary">Login</button>

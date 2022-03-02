@@ -13,6 +13,7 @@ export class AuthService {
     return this._http.post(`${this.commonApiURL}api/user/register`, data)
   }
   login(data:any):Observable<any>{
+    console.log(data)
     return this._http.post(`${this.commonApiURL}api/user/login`, data)
   }
 }
