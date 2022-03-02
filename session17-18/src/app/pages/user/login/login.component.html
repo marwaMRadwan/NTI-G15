@@ -1,0 +1,26 @@
+<section class="my-5 container">
+    <h2 class="text-center text-primary">Login</h2>
+    {{loginForm.value|json}}
+    {{loginForm.valid}}
+    {{loginForm.invalid}}
+    {{loginForm.submitted}}
+    <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+        <div class="mb-3">
+            <label>Email</label>
+            <input  placeholder="Email" class="form-control"
+            name="email"
+            [(ngModel)]="d.email"
+            #email="ngModel"
+            required email
+            >
+            {{email.errors?.['requird']}}
+        </div>
+        <div class="mb-3">
+            <label>Password</label>
+            <input name="Password" placeholder="password" type="password" class="form-control">
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-primary">Login</button>
+        </div>
+    </form>
+</section>
