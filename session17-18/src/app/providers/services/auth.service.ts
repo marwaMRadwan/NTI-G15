@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
+  public isLogin : boolean = false
+  public user: any = null
 
   commonApiURL="http://localhost:3000/"
   constructor(private _http:HttpClient) { }
@@ -18,5 +20,8 @@ export class AuthService {
   }
   me():Observable<any>{
     return this._http.get(`${this.commonApiURL}api/user/me`)
+  }
+  logout():Observable<any>{
+    return this._http.post(`${this.commonApiURL}api/user/logout`, null)
   }
 }
