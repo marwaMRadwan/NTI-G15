@@ -5,6 +5,16 @@
         <div class="mb-3">
             <label>Email</label>
             <input  placeholder="Email" class="form-control" formControlName="email">
+            <div class="alert alert-danger my-3" 
+            *ngIf="email?.invalid && (email?.dirty || email?.touched || isSubmitted)">
+                <!-- <li>{{ email?.valid }}</li>
+                <li>{{ email?.invalid }}</li>
+                <li>{{ email?.value }}</li>
+                <li>{{ email?.touched }}</li>
+                <li>{{ email?.dirty }}</li> -->
+                <li *ngIf="email?.errors?.['required']">Email is Required</li>
+                <li *ngIf="email?.errors?.['email']">Email Invalid Format</li>
+            </div>
         </div>
         <div class="mb-3">
             <label>Password</label>
