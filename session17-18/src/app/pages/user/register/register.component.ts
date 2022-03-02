@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/providers/services/auth.service';
-
+import {Router} from '@angular/router'
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/providers/services/auth.service';
 export class RegisterComponent implements OnInit {
   msg:string=""
   apiFlag:boolean=false
-  constructor(private _auth:AuthService) { }
+  constructor(private _auth:AuthService, private _router:Router) { }
 
   ngOnInit(): void {
   }
@@ -27,6 +27,8 @@ export class RegisterComponent implements OnInit {
         registerForm.resetForm()
         this.msg="data added successfully"
         this.apiFlag=true
+        this._router.navigateByUrl('/login')
+        // this._router.navigate(['/login'])
       }      
       )
     }
