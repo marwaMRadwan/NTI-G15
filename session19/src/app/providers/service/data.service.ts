@@ -24,7 +24,7 @@ login(data:any):Observable<any>{
   return this._http.post(`${this.baseurl}auth/login`, data)
 }
 me():Observable<any>{
-  return this._http.post(`${this.baseurl}auth/login`, {"lang" : this.langId})
+  return this._http.post(`${this.baseurl}auth/me`, {"lang" : this.langId})
 }
 // {"article_id" : 1,"comment" : "test comment data"}
 userComment(data:any):Observable<any>{
