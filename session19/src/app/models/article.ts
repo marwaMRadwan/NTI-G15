@@ -22,5 +22,18 @@ export interface Article {
         }
       }
     ]
-    "comments": []
+    "comments": [
+      {
+        "id":number
+        "article_id": string
+        "user_id": string
+        "comment": string
+        "created_at": string
+        "user": {
+          "id": number
+          "name": string
+          "image": string|null
+        }
+      }
+    ]
 }

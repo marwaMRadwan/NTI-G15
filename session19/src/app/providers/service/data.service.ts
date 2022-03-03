@@ -8,6 +8,7 @@ export class DataService {
   baseurl : string = "http://dashboard.roshetah.com/api/"
   langId : number = 1 //2 for arabic
   public imgPath = 'http://dashboard.roshetah.com/storage/app/public/'
+  public isLogin = false
   constructor(private _http:HttpClient) { }
 getAllCategories(): Observable<any>{
   return this._http.get(`${this.baseurl}LoadArticaleCategory/${this.langId}`)
@@ -18,10 +19,12 @@ getArticleByCatId(catId:number): Observable<any>{
 getSingleArticle(articleId:any): Observable<any>{
   return this._http.get(`${this.baseurl}SingleBlog/${articleId}/${this.langId}`)
 }
-
 // {email:x@test.com,password:19101994Ab**}
 login(data:any):Observable<any>{
   return this._http.post(`${this.baseurl}auth/login`, data)
+}
+me():Observable<any>{
+  return this._http.post(`${this.baseurl}auth/login`, {"lang" : this.langId})
 }
 // {"article_id" : 1,"comment" : "test comment data"}
 userComment(data:any):Observable<any>{

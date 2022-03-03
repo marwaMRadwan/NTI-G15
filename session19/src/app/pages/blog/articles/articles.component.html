@@ -1,18 +1,27 @@
 <section class="container my-5">
-    <div class="row">
+    <h2 class="text-primary text-center">Articles</h2>
+    <div class="row" *ngIf="isLoaded; else notLoaded">
+        <div class="alert alert-danger" *ngIf="articles.length==0">
+            No Articles yet
+        </div>
         <div class="col-md-4 col-12 p-3" *ngFor="let article of articles">
             <div class="m-3 border border-3 border-primary">
                 <img src="{{_data.imgPath}}{{article.image}}" class="img-fluid">
-                <p class="text-danger h6">{{article.title}}</p>
-                <span class="text-muted">{{article.department_data.dep_name}}</span>
-                <p>
-                   {{article.reactions_count}} likes
-                </p>
-                <p>
-                    {{article.comments.length}} comments
-                </p>
-                <button class="btn btn-primary " routerLink="/category/article/{{article.id}}">read more</button>
+                <p class="text-danger h6 ms-3">{{article.title}}</p>
+                <span class="text-muted ms-3">{{article.department_data.dep_name}}</span>
+                <div class="row ms-3 text-primary justify-content-end">
+                    <div class="col-2">
+                        {{article.reactions_count}} <i class="fa-solid fa-thumbs-up"></i>
+                    </div>
+                    <div class="col-2">
+                        {{article.comments.length}} <i class="fa-solid fa-comment"></i>
+                    </div>
+                </div>    
+                <button class="btn btn-primary m-3" routerLink="/category/article/{{article.id}}">read more</button>
             </div>
         </div>
     </div>
+    <ng-template #notLoaded>
+        <img src="assets/load.gif">
+    </ng-template>
 </section>

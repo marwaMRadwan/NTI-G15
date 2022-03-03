@@ -10,6 +10,7 @@ import { SinglearticleComponent } from './pages/blog/singlearticle/singlearticle
 import { NavbarComponent } from './pages/shared/navbar/navbar.component';
 import { FooterComponent } from './pages/shared/footer/footer.component';
 import { Err404Component } from './pages/err404/err404.component';
+import { LoginComponent } from './pages/user/login/login.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { Err404Component } from './pages/err404/err404.component';
     SinglearticleComponent,
     NavbarComponent,
     FooterComponent,
-    Err404Component
+    Err404Component,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

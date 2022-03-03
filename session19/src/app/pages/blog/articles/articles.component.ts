@@ -10,6 +10,7 @@ import {DataService} from 'src/app/providers/service/data.service'
 export class ArticlesComponent implements OnInit {
   id:any
   articles :Article[] = []
+  isLoaded = false
   constructor(private _route:ActivatedRoute, public _data:DataService) { }
 
   ngOnInit(): void {
@@ -28,7 +29,9 @@ export class ArticlesComponent implements OnInit {
       this.articles=res.data
     },
     (e)=>{},
-    ()=>{}
+    ()=>{
+      this.isLoaded=true
+    }
     )
   }
 }
