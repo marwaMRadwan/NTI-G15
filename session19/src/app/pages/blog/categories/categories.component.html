@@ -1,0 +1,23 @@
+<section class="container my-5">
+    <h3 class="text-primary text-center">All Categories</h3>
+    <div class="row justify-content-between" *ngIf="isLoaded; else load">
+        <div class="col-md-3 col-12 p-3" *ngFor="let cat of cats">
+            <div class="border border-3 border-primary">
+                <img src="assets/1.jpg" class="img-fluid">
+                <h4 class="m-2 text-danger h6">{{cat.title}}</h4>
+                <button routerLink="/category/{{cat.id}}" class="btn btn-primary m-2">
+                    More Data
+                </button>
+            </div>
+        </div>
+    </div>
+    <ng-template #load>
+        <img src="assets/load.gif">
+    </ng-template>
+    
+    <!-- <ul>
+        <li *ngFor="let cat of cats" routerLink="/category/{{cat.id}}">
+            {{cat.title}}
+        </li>
+    </ul> -->
+</section>

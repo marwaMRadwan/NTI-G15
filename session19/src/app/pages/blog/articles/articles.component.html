@@ -1,0 +1,18 @@
+<section class="container my-5">
+    <div class="row">
+        <div class="col-md-4 col-12 p-3" *ngFor="let article of articles">
+            <div class="m-3 border border-3 border-primary">
+                <img src="{{_data.imgPath}}{{article.image}}" class="img-fluid">
+                <p class="text-danger h6">{{article.title}}</p>
+                <span class="text-muted">{{article.department_data.dep_name}}</span>
+                <p>
+                   {{article.reactions_count}} likes
+                </p>
+                <p>
+                    {{article.comments.length}} comments
+                </p>
+                <button class="btn btn-primary " routerLink="/category/article/{{article.id}}">read more</button>
+            </div>
+        </div>
+    </div>
+</section>

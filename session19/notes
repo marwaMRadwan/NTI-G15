@@ -1,0 +1,20 @@
+baseurl=> http://dashboard.roshetah.com
+lang=> 1,2
+get
+{{baseurl}}/api/LoadArticaleCategory/{{lang}}
+{{baseurl}}/api/ArticaleBasedOnCatApi/{{catId}}/{{lang}}/0/10
+{{baseurl}}/api/SingleBlog/{{articleId}}/1
+post
+{{baseurl}}/api/auth/UserBlogComment
+{
+    "article_id" : 1,
+    "comment" : "test comment data"
+}
+{{baseurl}}/api/auth/UserBlogLike
+{
+    "article_id": 1
+}
+------------------------------------------
+{{baseurl}}/api/auth/login
+x@test.com
+19101994Ab**
