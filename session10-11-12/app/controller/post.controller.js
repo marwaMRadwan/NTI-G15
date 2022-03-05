@@ -8,29 +8,29 @@ class Post{
                 ...req.body
             })
             await post.save()
-            res.send({apiStatus:true, data:post, message:"added"})            
+            res.status(200).send({apiStatus:true, data:post, message:"added"})            
         }
         catch(e){
-            res.send({apiStatus:false, data:e.message, message:"error"})
+            res.status(500).send({apiStatus:false, data:e.message, message:"error"})
         }
     }
     static allPosts= async(req,res)=>{
         try{
             const posts = await postModel.find()
-            res.send({apiStatus:true, data:posts, message:"data featched"})
+            res.status(200).send({apiStatus:true, data:posts, message:"data featched"})
         }
         catch(e){
-            res.send({apiStatus:false, data:e.message, message:"error"})
+            res.status(500).send({apiStatus:false, data:e.message, message:"error"})
         }
     }
     static myPosts= async(req,res)=>{
         try{
             // const posts = await postModel.find({userId:req.user._id})
             await req.user.populate("myPosts")
-            res.send({apiStatus:true, data:{user:req.user, posts:req.user.myPosts}, message:"data featched"})
+            res.status(200).send({apiStatus:true, data:{user:req.user, posts:req.user.myPosts}, message:"data featched"})
         }
         catch(e){
-            res.send({apiStatus:false, data:e.message, message:"error"})
+            res.status(500).send({apiStatus:false, data:e.message, message:"error"})
         }
     }
     static delPost= async(req,res)=>{
@@ -42,10 +42,10 @@ class Post{
             })
             // const posts = await postModel.findByIdAndDelete(req.params.id)
             if(!posts) throw new Error("invalid post")
-            res.send({apiStatus:true, data:posts, message:"data featched"})
+            res.status(200).send({apiStatus:true, data:posts, message:"data featched"})
         }
         catch(e){
-            res.send({apiStatus:false, data:e.message, message:"error"})
+            res.status(500).send({apiStatus:false, data:e.message, message:"error"})
         }    
     }
 }

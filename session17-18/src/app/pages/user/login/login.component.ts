@@ -35,9 +35,9 @@ export class LoginComponent implements OnInit {
         },
         ()=>{
           this._auth.me().subscribe(
-            user=>{
+            (res)=>{
               this._auth.isLogin=true
-              this._auth.user = user.data
+              this._auth.user = res.data
             },
             (e)=>{
               this._auth.isLogin=false

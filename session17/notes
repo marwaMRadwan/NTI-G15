@@ -1,8 +1,0 @@
-components
-binding (interpolation , two way, event, property)
-input
-directives (ngFor ngIf ngSwitch ngClass ngStyle)
-routeing, routerLink
-http
-service (dependency injection)
-template driven form

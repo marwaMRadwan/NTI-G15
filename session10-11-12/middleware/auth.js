@@ -17,7 +17,7 @@ const auth = async(req,res, next)=>{
     }
     catch(e){
     //if !user not auth
-    res.send({apiStatus:false, date:e.message, message:"not authorized"})
+    res.status(500).send({apiStatus:false, date:e.message, message:"not authorized"})
     }
 }
 module.exports = auth

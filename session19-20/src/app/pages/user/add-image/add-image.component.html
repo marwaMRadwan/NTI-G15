@@ -1,0 +1,10 @@
+<section class="container my-5">
+    <form #d="ngForm" (ngSubmit)="uploadMe(d)">
+        <input name="name">
+        <input type="file" (change)="onChangeFile($event)">
+        <button>add</button>    
+    </form>
+
+    <!-- <input type="file" (change)="onChangeFile($event)">
+    <button (click)="uploadMe()">add</button> -->
+</section>

@@ -19,7 +19,7 @@
             <a class="nav-link" routerLink="/home" *ngIf="_auth.isLogin">{{_auth.user.name}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" *ngIf="_auth.isLogin" (click)="logout()">Logout</a>
+            <a class="nav-link btn btn-danger" *ngIf="_auth.isLogin" (click)="logout()">Logout</a>
           </li>
         </ul>
       </div>
